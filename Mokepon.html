@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mokepon Game</title>
+    <script src='./js/mokepon.js' defer></script>
+    <script src='./js/test.js' defer></script>
+</head>
+<body>
+    <h1>  MOKEPON!🔥💧🌱 </h1>
+
+    <section id="Seleccionar-mascota"></section>
+
+    <h2>Elige tu mascota: </h2>
+    <label for="Leonel"> Leonel</label>
+    <input type="radio" name="mascota" id="Leonel">
+    <label for="Abinadersh"> Abinadersh</label>
+    <input type="radio" name="mascota" id="Abinadersh">
+    <label for="Ranfick"> Ranfick</label>
+    <input type="radio" name="mascota" id="Ranfick">
+    <label for="Amable"> Amable</label>
+    <input type="radio" name="mascota" id="Amable">
+    <label for="Hippolitod"> Hippolitod</label>
+    <input type="radio" name="mascota" id="Hippolitod">
+    <button id="boton-mascota"> Seleccionar</button>
+
+    <section id="Ataque"> 
+        <h2>Elige tu Ataque: </h2>
+        <p>Tu mascota <span id="mascotaDelJugador"></span> tiene <span>3</span> vidas</p>
+        <p>La mascota <span id="mascotaDelEnemigo"></span> del enemigo tiene <span>3</span> vidas</p>
+        <button id="Fuego">Fuego 🔥</button>
+        <button id="Agua">Agua 💧</button>
+        <button id="Planta">Planta 🌱</button>
+    </section>
+
+    <section id="mensajes">
+        <p>Tu mascota ataco con fuego, la mascota del enemigo ataco con planta --Ganaste 🎊</p>
+    </section>
+
+    <section id="reiniciar">
+        <button id="Reinciar">Reiniciar</button>
+    </section>
+
+</body>
+</html>
