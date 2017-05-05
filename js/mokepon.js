@@ -1,4 +1,5 @@
 let AtaqueJugador;
+let AtaqueEnemigo;
 
 function iniciarjuego() {
     let Elegirmascota = document.getElementById("boton-mascota");
@@ -42,19 +43,16 @@ const SeleccionarMascota = () => {
 
 const ataquefuego = () => {
     AtaqueJugador = 'FUEGO';
-    alert(AtaqueJugador);
     SeleccionarAtaqueEnemigo();
 };
 
 const ataqueagua = () => {
     AtaqueJugador = 'AGUA';
-    alert(AtaqueJugador);
     SeleccionarAtaqueEnemigo();
 };
 
 const ataqueplanta = () => {
     AtaqueJugador = 'PLANTA';
-    alert(AtaqueJugador);
     SeleccionarAtaqueEnemigo();
 };
 
@@ -62,18 +60,40 @@ const SeleccionarAtaqueEnemigo = () => {
     let ataqueSeleccionadonado = Randomizer(1, 3);
 
     if (ataqueSeleccionadonado == 1) {
-        alert("El Enemigo ataco con FUEGO");
+        AtaqueEnemigo = 'FUEGO';
     } else if (ataqueSeleccionadonado == 2) {
-        alert("El Enemigo ataco con AGUA");
+        AtaqueEnemigo = 'AGUA';
     } else {
-        alert("El Enemigo ataco con PLANTA");
+        AtaqueEnemigo = 'PLANTA';
+    }
+
+    combate(); 
+};
+
+const combate = () => {
+    if (AtaqueEnemigo == AtaqueJugador) {
+        crearMensaje("EMPATE 😅👌");
+    } else if (AtaqueJugador == 'FUEGO' && AtaqueEnemigo == 'PLANTA') {
+        crearMensaje("GANASTE 🎊");
+    } else if (AtaqueJugador == 'AGUA' && AtaqueEnemigo == 'FUEGO') {
+        crearMensaje("GANASTE 🎊");
+    } else if (AtaqueJugador == 'PLANTA' && AtaqueEnemigo == 'AGUA') {
+        crearMensaje("GANASTE 🎊");
+    } else {
+        crearMensaje("PERDISTE 😭👎");
     }
 };
+
+function crearMensaje(resultado) {
+    let sectionMensajes = document.getElementById('mensajes');
+    let parrafo = document.createElement('p');
+    parrafo.innerHTML = "Tu mascota atacó con " + AtaqueJugador + ", la mascota del enemigo atacó con " + AtaqueEnemigo + " - " + resultado;
+    sectionMensajes.appendChild(parrafo);
+}
 
 const Randomizer = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
 
 const SeleccionarMascotaEnemigo = () => {
     let AtaqueAliatorio = Randomizer(1, 5);
@@ -91,6 +111,5 @@ const SeleccionarMascotaEnemigo = () => {
         MascotaEnemigo.innerHTML = "Hippolitod";
     }
 };
-
 
 window.addEventListener("load", iniciarjuego);
